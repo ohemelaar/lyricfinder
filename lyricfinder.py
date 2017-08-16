@@ -33,7 +33,6 @@ def setLyricsToFile(lyrics, file):
 def searchLyrics(query):
     engine = "https://search.azlyrics.com/search.php?q="
     searchlink = engine + query
-    #print("Search link : " + searchlink)
     soup = BeautifulSoup(urllib.urlopen(searchlink), "lxml")
     soup = soup.find("div", "main-page")
     soup = soup.find("table")
@@ -51,13 +50,10 @@ print("Downloading lyrics for directory " + directory)
 for file in os.listdir(directory):
     if file.endswith(".mp3"):
         filepath = directory + str(file)
-        #print("Filepath : " + filepath)
         query = fileToSearchQuery(filepath)
-        #print("Query : " + query)
         lyrics = searchLyrics(query)
         if lyrics != None:
             setLyricsToFile(lyrics, filepath)
-            #createLrcFile(lyrics, file, directory)
             print("Downloaded lyrics for " + file)
         else:
             print("No lyrics found for " + file)
