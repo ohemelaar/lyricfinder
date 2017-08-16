@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-#Usage : ./lyricfinder.py /path/to/folder/containing/music
+#Usage : ./lyricfinder.py /path/to/folder/containing/musics
 
 import os
 import urllib
